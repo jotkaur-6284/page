@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrit Sanchar</title>
+    <style>
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 30%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            margin-left: 10%;
+        }
+
+        .title {
+            margin-top: 15%;
+            font-size: 28px;
+            color: royalblue;
+            font-weight: 600;
+            letter-spacing: -1px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+        }
+
+        .title::before,.title::after {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: royalblue;
+        }
+
+        .title::before {
+            width: 18px;
+            height: 18px;
+            background-color: royalblue;
+        }
+
+        .title::after {
+            width: 18px;
+            height: 18px;
+            animation: pulse 1s linear infinite;
+        }
+
+        .message, .signin {
+            color: rgba(88, 87, 87, 0.822);
+            font-size: 140%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: lightgreen;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .amritS{
+            display: flex;
+        }
+        
+        .amsec{
+            margin-left: 15%;
+            margin-top: 5%;
+            width: fit-content;
+        }
+
+        .container {
+            background-color: #f57c20;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 450px;
+            height: 110%;
+            position: relative;
+        }
+
+        .btn {
+            background-color: white;
+            border: 2px solid #3e3e3e;
+            padding: 10px;
+            width: 140px;
+            height: 70px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <script>
+        function setDate(date) {
+            document.getElementById("dateInput").value = date;
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            let selectedDate = document.getElementById("dateInput").value;
+            document.querySelector(".success-message").innerText = `Registration successful! Certificate will be sent on your mail after ${selectedDate}`;
+            document.querySelector(".success-message").style.display = "block";
+            document.querySelector(".form").reset();
+            setTimeout(() => {
+                document.querySelector(".success-message").style.display = "none";
+            }, 5000);
+        }
+    </script>
+</head>
+<body>
+    <div class="success-message"></div>
+    <div class="amritS">home
+        <form class="form" onsubmit="submitForm(event)">
+            <div class="title">Register For AmritSanchar </div>
+            <div class="message">Gurudwara Fatehgrah Sahib </div>
+            <label>
+                <input class="input" type="text" name="uname" required>
+                <span>Firstname</span>
+            </label>
+            <label>
+                <input class="input" type="text" name="lname" required>
+                <span>Lastname</span>
+            </label>
+            <label>
+                <input class="input" type="date" id="dateInput" name="udate" required>
+            </label>
+            <button class="submit">Register</button>
+        </form>
+        <div class="amsec">
+            <div class="container">
+                <h1>AMRITSANCHAR</h1>
+                <h2>DURUDWARA SRI FATEHGARH SAHIB (2025)</h2>
+                <div class="buttons">
+                    <button class="btn" onclick="setDate('21 January 2025')">21 January 2025</button>
+                    <button class="btn" onclick="setDate('23 February 2025')">23 February 2025</button>
+                    <button class="btn" onclick="setDate('30 March 2025')">30 March 2025</button>
+                    <button class="btn" onclick="setDate('29 April 2025')">29 April 2025</button>
+                    <button class="btn" onclick="setDate('25 May 2025')">25 May 2025</button>
+                    <button class="btn" onclick="setDate('28 June 2025')">28 June 2025</button>
+                    <button class="btn" onclick="setDate('21 July 2025')">21 July 2025</button>
+                    <button class="btn" onclick="setDate('30 August 2025')">30 August 2025</button>
+                    <button class="btn" onclick="setDate('27 September 2025')">27 September 2025</button>
+                    <button class="btn" onclick="setDate('21 October 2025')">21 October 2025</button>
+                    <button class="btn" onclick="setDate('21 November 2025')">21 November 2025</button>
+                    <button class="btn" onclick="setDate('31 December 2025')">31 December 2025</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
